@@ -7,7 +7,7 @@
         "clean": "rm -rf ./build && rm -rf ./lib",
         "dev": "nodemon --exec babel-node src/server/index.js",
         "start": "npm run clean && npm run build",
-        "build": "NODE_ENV=production npm run build:webpack && npm run build:lib",
+        "build": "npm run build:webpack && npm run build:lib",
         "build:webpack": "webpack",
         "build:lib": "babel -d lib src",
         "serve": "babel-node src/server/index.js",

@@ -44,7 +44,6 @@ const webStats = path.resolve(
 app.get('*', (req, res) => {
     const nodeExtractor = new ChunkExtractor({ statsFile: nodeStats });
     const { default: App } = nodeExtractor.requireEntrypoint();
-    console.log(nodeExtractor.requireEntrypoint().default);
 
     const webExtractor = new ChunkExtractor({ statsFile: webStats });
     const jsx = webExtractor.collectChunks(<App />);
@@ -55,11 +54,15 @@ app.get('*', (req, res) => {
     res.send(`<!DOCTYPE html>
 <html>
 <head>
+<title>test</title>
+<!-- link tags -->
 ${webExtractor.getLinkTags()}
+<!-- style tags -->
 ${webExtractor.getStyleTags()}
 </head>
 <body>
   <div id="app">${html}</div>
+  <!-- script tags -->
   ${webExtractor.getScriptTags()}
 </body>
 </html>`);
