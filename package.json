@@ -1,0 +1,45 @@
+{
+    "name": "preact-template",
+    "version": "1.0.0",
+    "description": "preact template with code splitting",
+    "private": true,
+    "scripts": {
+        "clean": "rm -rf ./build && rm -rf ./lib",
+        "dev": "nodemon --exec babel-node src/server/index.js",
+        "start": "npm run clean && npm run build",
+        "build": "NODE_ENV=production npm run build:webpack && npm run build:lib",
+        "build:webpack": "webpack",
+        "build:lib": "babel -d lib src",
+        "serve": "babel-node src/server/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.5.5",
+        "@babel/core": "^7.5.5",
+        "@babel/node": "^7.5.5",
+        "@babel/plugin-proposal-class-properties": "^7.5.5",
+        "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/preset-env": "^7.5.5",
+        "@babel/preset-react": "^7.0.0",
+        "@loadable/babel-plugin": "^5.10.0",
+        "@loadable/server": "^5.10.2",
+        "@loadable/webpack-plugin": "^5.7.1",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-dynamic-import-node": "^2.3.0",
+        "css-loader": "^3.2.0",
+        "mini-css-extract-plugin": "^0.8.0",
+        "nodemon": "^1.19.1",
+        "webpack": "^4.39.1",
+        "webpack-cli": "^3.3.6",
+        "webpack-dev-middleware": "^3.7.0",
+        "webpack-node-externals": "^1.7.2"
+    },
+    "dependencies": {
+        "@loadable/component": "^5.10.2",
+        "core-js": "^3.2.0",
+        "express": "^4.17.1",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0"
+    }
+}
